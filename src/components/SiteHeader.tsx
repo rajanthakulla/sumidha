@@ -23,15 +23,14 @@ export function SiteHeader() {
 
   return (
     <header className="bg-surface-container-lowest top-0 sticky w-full border-b border-outline-variant/30 shadow-sm z-50">
-      <nav className="flex justify-between items-center w-full px-gutter max-w-max-container mx-auto h-20">
+      <nav className="flex justify-between items-center w-full px-gutter max-w-max-container mx-auto h-20 gap-4">
         <Link href={routes.home} className="flex items-center gap-2 shrink-0">
-          <span className="material-symbols-outlined fill text-primary text-2xl">temple_buddhist</span>
-          <span className="font-headline-sm text-headline-sm text-primary leading-tight">
-            Sumida <br />
-            International
+          <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">temple_buddhist</span>
+          <span className="font-headline-sm text-lg md:text-xl font-semibold text-primary leading-tight whitespace-nowrap">
+            Sumida International
           </span>
         </Link>
-        <ul className="hidden lg:flex gap-8 xl:gap-10 items-center font-label-md text-label-md">
+        <ul className="hidden xl:flex gap-4 2xl:gap-8 items-center font-label-md text-label-md">
           {mainNav.map((item) => {
             const active = pathname === item.href;
             return (
@@ -40,8 +39,8 @@ export function SiteHeader() {
                   href={item.href}
                   className={
                     active
-                      ? "text-primary border-b-2 border-primary pb-1 duration-300 ease-in-out"
-                      : "text-on-surface hover:text-primary transition-colors duration-300 ease-in-out"
+                      ? "text-primary border-b-2 border-primary pb-1 duration-300 ease-in-out whitespace-nowrap"
+                      : "text-on-surface hover:text-primary transition-colors duration-300 ease-in-out whitespace-nowrap"
                   }
                 >
                   {item.label}
@@ -50,7 +49,7 @@ export function SiteHeader() {
             );
           })}
         </ul>
-        <div className="hidden lg:block shrink-0">
+        <div className="hidden xl:block shrink-0">
           <Link
             href={`${routes.contact}?intent=consultation`}
             className="bg-primary-container text-on-primary font-label-md text-label-md py-2.5 px-6 rounded-lg hover:bg-primary transition-colors whitespace-nowrap"
@@ -61,7 +60,7 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="lg:hidden p-2 text-on-surface hover:text-primary transition-colors"
+          className="xl:hidden p-2 text-on-surface hover:text-primary transition-colors ml-auto"
           onClick={() => setOpen(true)}
         >
           <span className="material-symbols-outlined text-3xl">menu</span>
@@ -74,7 +73,7 @@ export function SiteHeader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-sm xl:hidden"
           >
             <motion.div
               initial={{ x: "100%" }}
