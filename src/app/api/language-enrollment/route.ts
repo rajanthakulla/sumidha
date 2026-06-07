@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 
+export const runtime = 'edge';
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as {
@@ -18,6 +19,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Missing required fields." }, { status: 400 });
     }
 
+    const prisma = getPrisma();
     await prisma.languageEnrollment.create({
       data: { name, email, phone, level },
     });

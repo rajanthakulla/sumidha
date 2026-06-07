@@ -1,9 +1,11 @@
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 import { FaqAccordion } from "@/components/FaqAccordion";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export default async function FaqPage() {
+  const prisma = getPrisma();
   const items = await prisma.faqItem.findMany();
 
   return (
