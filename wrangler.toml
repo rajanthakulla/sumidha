@@ -7,3 +7,7 @@ binding = "DB" # This is how we access the DB in Prisma
 database_name = "sumida-db"
 database_id = "REPLACE_WITH_YOUR_DATABASE_ID" # You will replace this later
 migrations_dir = "prisma/migrations"
+
+[[r2_buckets]]
+binding = "IMAGES_BUCKET"
+bucket_name = "sumida-images"

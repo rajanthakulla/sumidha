@@ -31,3 +31,13 @@ model FaqItem {
   answer    String
   sortOrder Int    @default(0)
 }
+
+model UploadedImage {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  url       String
+  name      String
+  size      Int
+  type      String
+  createdAt DateTime @default(now())
+}
